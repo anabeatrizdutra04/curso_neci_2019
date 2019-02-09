@@ -1,0 +1,60 @@
+## O que são pacotes e funções?
+
+### Funções
+
+Como você deve ter notado mencionamos algumas vezes a palavra função/funções, mas o que é isso? Podemos pensar cada função como uma __ação__ a ser realizada, como por exemplo, transforme os dados em fatores (`factor()`) ou realize a média (`mean()`) de um conjunto de dados númericos. Ou seja, uma função é um conjunto de instruções que realizam uma tarefa especifica, podendo carregar com parâmetros a serem preenchidos pelo usuário ou não.
+
+Vamos pensar na função `strsplit()`! Ok, se você nunca programou antes talvez não saiba o que ela faz... Para isso existe o que nós chamamos de documentação, um local que nos explica qual é a "ação" que a função realiza e os parâmetros que ela aceita.
+
+```{r}
+# Para ver a documentação de uma função
+?strsplit()
+```
+
+Se observarmos o tópico "Usage" veremos o seguinte:
+
+`strsplit(x, split, fixed = FALSE, perl = FALSE, useBytes = FALSE)`
+
+O `x` e o `split` são argumentos que devem ser obrigatóriamente preenchidos, o restante já esta preenchido por padrão (também falamos default). Vamos ver um exemplo,
+
+```{r}
+strsplit(x = "Aprender sobre funcoes pode ser divertido", split = " ")
+```
+
+Como os argumentos possuem posições não precisamos necessariamente ficar escrevendo `x = `  ou `split = `.
+
+```{r}
+strsplit("Aprender sobre funcoes pode ser divertido", " ")
+```
+
+Se você tiver mais interesse em saber sobre funções [clique aqui!](https://www.datacamp.com/community/tutorials/functions-in-r-a-tutorial#what)
+
+### Pacotes
+
+Segundo a definição do livro R Packages, escrito por Hadley Wickham, um pacote é uma unidade fundamental de compartilhamento de códigos, dados, documentação e testes. Em outras palavras, os pacotes são coleções de códigos (funções) e dados desenvolvidos pela comunidade.
+
+Estes pacotes ficam localizados no que chamamos de repositório. O principal repositório recebe o nome de **C**omprehensive **R** **A**rchive **N**etwork, o também chamado, CRAN. Mas existem outros também, como o Github, no qual a forma de obter os pacotes muda. Mas como instalamos um pacote no R? A resposta é simples, utilizamos uma função chamada `install.packages()` em que o argumento principal é o nome do pacote que queremos instalar.
+
+Uma peculiaridade desta função é que por padrão ela instala os pacotes que estão no CRAN, como por exemplo, vamos instalar um pacote chamado "dplyr"
+
+```{r}
+install.packages("dplyr")
+```
+
+Após instalarmos o pacote, devemos habilitá-lo com uma função chamada `library()`
+
+```{r}
+library(dplyr)
+```
+
+Caso o pacote não esteja no CRAN, mas sim no Github, devemos instalar o pacote com o auxilio de uma função chamada `install_github()` do pacote `devtools`.
+
+```{r}
+install.packages("devtools")
+
+library(devtools)
+
+install_github("abjur/abjutils")
+
+library(abjutils)
+```
